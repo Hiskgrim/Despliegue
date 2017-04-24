@@ -1,0 +1,216 @@
+<br>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="intro-text text-center">INFORMACIÓN CONTRATO GENERAL</h4>
+    </div>
+    <div class="panel-body">
+        <form role="form">
+            <div class="row">
+                <div
+                <div class="form-group col-lg-4">
+                    <label>NÚMERO SEMANAS</label>
+                    <input type="number" class="form-control" ng-model="datosValor.NumSemanas" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>NÚMERO HORAS SEMANALES</label>
+                    <input type="number" class="form-control" ng-model="datosValor.NumHorasSemanales" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>DEDICACIÓN</label>
+                    <select type="number" class="form-control" ng-model="datosValor.dedicacion" >
+                        <option value="">--SELECCIONE--</option>
+                        <option value="hcp">HORA CATEDRA PRESTACIONES</option>
+                        <option value="hch">HORA CATEDRA HONORARIOS</option>
+                        <option value="mto">MEDIO TIEMPO</option>
+                        <option value="tco">TIEMPO COMPLETO</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>NÚMERO CONTRATO</label>
+                    <input type="text" class="form-control" ng-model="contratoGeneral.NumeroContrato" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>VIGENCIA</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.Vigencia" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>OBJETO DEL CONTRATO</label>
+                    <textarea rows="4" type="text" class="form-control" ng-model="contratoGeneral.ObjetoContrato"></textarea>
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>PLAZO DE EJECUCIÓN</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.PlazoEjecucion" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>FORMA DE PAGO</label>
+                    <select class="form-control" ng-model="contratoGeneral.FormaPago" >
+                        <option value="">--SELECCIONE--</option>
+                        <option>SI</option>
+                        <option>NO</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>ORDENADOR DEL GASTO</label>
+                    <input type="text" class="form-control" ng-model="contratoGeneral.OrdenadorGasto" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>CLAÚSULA REGISTRO PRESUPUESTAL</label>
+                    <input type="bool" class="form-control" ng-model="contratoGeneral.ClausulaRegistroPresupuestal" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>SEDE SOLICITANTE</label>
+                    <input type="text" class="form-control" ng-model="contratoGeneral.SedeSolicitante" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>DEPENDENCIA SOLICITANTE</label>
+                    <input type="text" class="form-control" ng-model="contratoGeneral.DependenciaSolicitante" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>NÚMERO DE SOLICITUD DE NECESIDAD</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.NumeroSolicitudNecesidad" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>NÚMERO CDP</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.NumeroCdp" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>CONTRATISTA</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.Contratista" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>UNIDAD EJECUCIÓN</label>
+                    <select class="form-control" ng-model="contratoGeneral.UnidadEjecucion" >
+                        <option value="">--SELECCIONE--</option>
+                        <option>SI</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>VALOR CONTRATO</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.ValorContrato">
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>JUSTIFICACIÓN</label>
+                    <input type="text" class="form-control" ng-model="contratoGeneral.Justificacion" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>FORMA DE PAGO</label>
+                    <input type="text" class="form-control" ng-model="DescripcionFormaPago" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>CONDICIONES</label>
+                    <input type="text" class="form-control" ng-model="contratoGeneral.Condiciones" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>UNIDAD EJECUTORA</label>
+                    <select class="form-control" ng-model="contratoGeneral.UnidadEjecutora" >
+                        <option value="">--SELECCIONE--</option>
+                        <option>SI</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>TIPOLOGÍA CONTRATO</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.TipologiaContrato" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>TIPO COMPROMISO</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.TipoCompromiso" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>MODALIDAD DE SELECCIÓN</label>
+                    <input type="integer" class="form-control" ng-model="contratoGeneral.ModalidadSeleccion" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>PROCEDIMIENTO</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.Procedimiento" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>RÉGIMEN DE CONTRATACIÓN</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.RegimenContratacion" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>TIPO GASTO</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.TipoGasto" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>TEMA GASTO INVERSIÓN</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.TemaGastoInversion" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>ORIGEN PRESUPUESTO</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.OrigenPresupuesto" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>ORIGEN RECURSOS</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.OrigenRecursos" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>TIPO MONEDA</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.TipoMoneda" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>VALOR CONTRATO (MONEDA EXTRANJERA)</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.ValorContratoMe" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>VALOR TASA DE CAMBIO</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.ValorTasaCambio" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>TIPO DE CONTROL</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.TipoControl" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>OBSERVACIONES</label>
+                    <textarea rows="4" type="text" class="form-control" ng-model="contratoGeneral.Observaciones"></textarea>
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>SUPERVISOR</label>
+                    <input type="text" class="form-control" ng-model="contratoGeneral.Supervisor" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>CLASE CONTRATISTA</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.ClaseContratista" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>CONVENIO</label>
+                    <input type="text" class="form-control" ng-model="contratoGeneral.Convenio" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>NÚMERO CONSTANCIA</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.NumeroConstancia" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>ESTADO</label>
+                    <input type="bool" class="form-control" ng-model="contratoGeneral.Estado" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>REGISTRO PRESUPUESTAL</label>
+                    <input type="number" class="form-control" ng-model="contratoGeneral.RegistroPresupuestal" >
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>TIPO DE CONTRATO</label>
+                    <select type="number" class="form-control" ng-model="contratoGeneral.TipoContrato" >
+                        <option value="">--SELECCIONE--</option>
+                        <option value=1>SI</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>LUGAR DE EJECUCIÓN</label>
+                    <select type="number" class="form-control" ng-model="contratoGeneral.LugarEjecucion" >
+                        <option value="">--SELECCIONE--</option>
+                        <option>SI</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>ACTIVIDADES</label>
+                    <input type="text" class="form-control" ng-model="contratoGeneral.Actividades" >
+                </div>
+                <div class="form-group col-lg-12"><input type="submit" class="form-control btn btn-success" value="Ingresar Datos de Contrato" ng-click="verificarContrato()">
+                </div>
+            </div>
+        </form>
+        <pre>
+            {{contratoGeneral | json}}
+        </pre>
+    </div>
+</div>
