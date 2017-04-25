@@ -22,10 +22,6 @@ angular.module('clienteApp')
       self.proyectos=response.data;
     });
 
-    contratacion_request.getAll("contrato_especial").then(function(response){
-      self.contratosEspeciales=response.data;
-    });
-
     contratacion_request.getAll("contratado").then(function(response){
       self.contratados=response.data;
     });
