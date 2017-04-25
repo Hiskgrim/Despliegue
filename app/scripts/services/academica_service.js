@@ -11,7 +11,7 @@ angular.module('academica_service',[])
   .factory('academica_request', function ($http) {
     // Service logic
     // ...
-    var path = "http://localhost:8082/v1/";
+    var path = "http://10.20.0.254/academicaAPI/v1/";
 
     // Public API here
     return {
