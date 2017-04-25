@@ -26,19 +26,19 @@ angular.module('clienteApp')
       self.contratados=response.data;
     });
 
-    $.getJSON("/resolucion.json", function(resolucion) {
+   $.getJSON("/cdve_cliente/resolucion.json", function(resolucion) {
         self.numero=resolucion["numero"];
     });
 
-    $.getJSON("/resolucion.json", function(resolucion) {
+    $.getJSON("/cdve_cliente/resolucion.json", function(resolucion) {
         self.preambulo=resolucion["preambulo"];
     });
 
-    $.getJSON("/resolucion.json", function(resolucion) {
+    $.getJSON("/cdve_cliente/resolucion.json", function(resolucion) {
         self.consideracion=resolucion["consideracion"];
     });
     
-    $.getJSON("/resolucion.json", function(resolucion) {
+    $.getJSON("/cdve_cliente/resolucion.json", function(resolucion) {
         self.articulos=resolucion["articulos"];
     });
     
