@@ -34,7 +34,8 @@ angular
     'hojas_de_vida_service',
     'contratacion_service',
     'academica_service',
-    'contratacion_mid_service'
+    'contratacion_mid_service',
+    'sicapital_service'
   ])
     .run(function(amMoment) {
       amMoment.changeLocale('es');
@@ -57,12 +58,12 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/resolucion_generacion/:nivelCarrera/:tipoDedicacion/:idFacultad', {
+      .when('/resolucion_generacion', {
         templateUrl: 'views/resolucion_generacion.html',
         controller: 'ResolucionGeneracionCtrl',
         controllerAs: 'resolucionGeneracion'
       })
-      .when('/hojas_de_vida_seleccion/:idFacultad', {
+      .when('/hojas_de_vida_seleccion/:idResolucion', {
         templateUrl: 'views/hojas_de_vida_seleccion.html',
         controller: 'HojasDeVidaSeleccionCtrl',
         controllerAs: 'hojasDeVidaSeleccion'
@@ -71,6 +72,26 @@ angular
         templateUrl: 'views/contrato_registro.html',
         controller: 'ContratoRegistroCtrl',
         controllerAs: 'contratoRegistro'
+      })
+      .when('/contrato_detalle', {
+        templateUrl: 'views/contrato_detalle.html',
+        controller: 'ContratoDetalleCtrl',
+        controllerAs: 'contratoDetalle'
+      })
+      .when('/resolucion_lista', {
+        templateUrl: 'views/resolucion_lista.html',
+        controller: 'ResolucionListaCtrl',
+        controllerAs: 'resolucionLista'
+      })
+      .when('/resolucion_detalle/:idResolucion', {
+        templateUrl: 'views/resolucion_detalle.html',
+        controller: 'ResolucionDetalleCtrl',
+        controllerAs: 'resolucionDetalle'
+      })
+      .when('/resolucion_vista', {
+        templateUrl: 'views/resolucion_vista.html',
+        controller: 'ResolucionVistaCtrl',
+        controllerAs: 'resolucionVista'
       })
       .otherwise({
         redirectTo: '/'

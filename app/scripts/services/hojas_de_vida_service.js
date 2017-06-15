@@ -12,7 +12,7 @@ angular.module('hojas_de_vida_service',[])
 
     // Service logic
     // ...
-    var path = "http://10.20.0.254/hvapi/v1/";
+    var path = "http://localhost:8081/v1/";
 
     // Public API here
     return {

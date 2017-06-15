@@ -7,7 +7,7 @@
  * Controller of the clienteApp
  */
 angular.module('clienteApp')
-.controller('menuCtrl', function($location, $http, $scope, token_service, notificacion, $translate, academica_request) {
+.controller('menuCtrl', function($location, $http, $scope, token_service, notificacion, $translate) {
     var paths = [];
     $scope.language = {
         es:"btn btn-primary btn-circle btn-outline active",
@@ -17,101 +17,32 @@ angular.module('clienteApp')
     $scope.actual = "";
     $scope.token_service = token_service;
     $scope.breadcrumb = [];
-    academica_request.getAll("facultad","limit=0").then(function(response){
-      $scope.facultades=response.data;
-      var contenidoInscripcion=[];
-      var contenidoResolucion=[];
-      $scope.facultades.forEach(function(facultad){
-        var itemInscripcion={
-          "Id": 1,
-          "Nombre": facultad.Nombre,
-          "Opciones":[{
-            "Id": 2,
-            "Nombre": "PREGRADO",
-            "Url": "hojas_de_vida_seleccion/pregarado",
-            "Opciones": null
-          },{
-            "Id": 4,
-            "Nombre": "POSGRAO",
-            "Url": "hojas_de_vida_seleccion/posgrado",
-            "Opciones": null
-          }]          
-        }
-        var itemResolucion={
-          "Id": 1,
-          "Nombre": facultad.Nombre,
-          "Opciones":[{
-            "Id": 7,
-            "Nombre": "PREGRADO",
-            "Url": "urnl_nivel_2",
-            "Opciones": [{
-              "Id": 16,
-              "Nombre": "TCO - MTO",
-              "Url": "resolucion_generacion/pregrado/TCO_MTO/"+facultad.Id.toString(),
-              "Opciones": null
-            },{
-              "Id": 17,
-              "Nombre": "HCP",
-              "Url": "resolucion_generacion/pregrado/HCP/"+facultad.Id.toString(),
-              "Opciones": null
-            },{
-              "Id": 18,
-              "Nombre": "HCH",
-              "Url": "resolucion_generacion/pregrado/HCH/"+facultad.Id.toString(),
-              "Opciones": null
-            }]
-          },{
-            "Id": 9,
-            "Nombre": "POSGRADO",
-            "Url": "url_nivel_2",
-            "Opciones": [{
-              "Id": 16,
-              "Nombre": "HCP",
-              "Url": "resolucionposgradoHCP/"+facultad.Id.toString(),
-              "Opciones": null
-            },{
-              "Id": 17,
-              "Nombre": "HCH",
-              "Url": "resolucionposgradoHCH/"+facultad.Id.toString(),
-              "Opciones": null
-            }]
-          }]          
-        }
-        contenidoInscripcion.push(itemInscripcion);
-        contenidoResolucion.push(itemResolucion);
-      });
-      $scope.actual = "";
-      $scope.token_service = token_service;
-      $scope.breadcrumb = [];
+
+    $scope.actual = "";
+    $scope.token_service = token_service;
+    $scope.breadcrumb = [];
       $scope.menu_service = [{ //aqui va el servicio de el app de configuracion
         "Id": 6,
-        "Nombre": "Generación resolución",
-        "Url": "url_nivel_1",
-        "Opciones": contenidoResolucion
-      },{ //aqui va el servicio de el app de configuracion
-        "Id": 1,
-        "Nombre": "Inscripción docentes",
-        "Url": "url_nivel_1",
-        "Opciones": contenidoInscripcion
+        "Nombre": "Resoluciones",
+        "Url": "resolucion_lista",
+        "Opciones": null//contenidoResolucion
       }];
-      recorrerArbol($scope.menu_service, "");
-    });
 
-    var recorrerArbol = function(item, padre) {
-      var padres = "";
-      for (var i = 0; i < item.length; i++) {
-        if (item[i].Opciones === null) {
-          padres = padre + " , " + item[i].Nombre;
-          paths.push({
-            'path': item[i].Url,
-            'padre': padres.split(",")
-          });
-        } else {
-          recorrerArbol(item[i].Opciones, padre + "," + item[i].Nombre);
+      var recorrerArbol = function(item, padre) {
+        var padres = "";
+        for (var i = 0; i < item.length; i++) {
+          if (item[i].Opciones === null) {
+            padres = padre + " , " + item[i].Nombre;
+            paths.push({
+              'path': item[i].Url,
+              'padre': padres.split(",")
+            });
+          } else {
+            recorrerArbol(item[i].Opciones, padre + "," + item[i].Nombre);
+          }
         }
-      }
-      return padres;
-    };
+        return padres;
+      };
 
 
 

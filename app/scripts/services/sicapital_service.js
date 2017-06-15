@@ -7,11 +7,11 @@
  * # contratacionMidService
  * Factory in the clienteApp.
  */
-angular.module('contratacion_mid_service',[])
-  .factory('contratacion_mid_request', function ($http) {
+angular.module('sicapital_service',[])
+  .factory('sicapital_request', function ($http) {
     // Service logic
     // ...
-    var path = "http://localhost:8088/v1/";
+    var path = "http://10.20.2.15/sicws/ws/sicapitalAPI.php/?/";
 
     // Public API here
     return {

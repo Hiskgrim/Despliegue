@@ -8,105 +8,109 @@
  * Controller of the clienteApp
  */
 angular.module('clienteApp')
-  .controller('ResolucionGeneracionCtrl', function (contratacion_request,academica_request,$mdDialog,$scope,$routeParams) {
+  .controller('ResolucionGeneracionCtrl', function (contratacion_request,$mdDialog,$scope,$routeParams,$window) {
 
   	var self=this;
 
-    self.nivelCarrera=$routeParams.nivelCarrera;
-    self.tipoDedicacion=$routeParams.tipoDedicacion;
-    self.idFacultad=$routeParams.idFacultad;
+  	contratacion_request.getAll("facultad").then(function(response){
+  		self.facultades=response.data;
+  	});
 
-    self.datosContratos=[];
+  	self.resolucion={};
 
-    academica_request.getAll("proyecto_curricular","query=IdFacultad.id%3A"+self.idFacultad+"%2CIdTipoCarrera.Id%3A1&limit=0").then(function(response){
-      self.proyectos=response.data;
+  	$.getJSON("/resolucion.json", function(resolucion) {
+        self.resolucion.preambulo=resolucion["preambulo"];
     });
 
-    contratacion_request.getAll("contratado").then(function(response){
-      self.contratados=response.data;
+    $.getJSON("/resolucion.json", function(resolucion) {
+        self.resolucion.consideracion=resolucion["consideracion"];
     });
 
-   $.getJSON("/cdve_cliente/resolucion.json", function(resolucion) {
-        self.numero=resolucion["numero"];
+    $.getJSON("/resolucion.json", function(resolucion) {
+        self.resolucion.articulos=resolucion["articulos"];
     });
 
-    $.getJSON("/cdve_cliente/resolucion.json", function(resolucion) {
-        self.preambulo=resolucion["preambulo"];
-    });
-
-    $.getJSON("/cdve_cliente/resolucion.json", function(resolucion) {
-        self.consideracion=resolucion["consideracion"];
-    });
-    
-    $.getJSON("/cdve_cliente/resolucion.json", function(resolucion) {
-        self.articulos=resolucion["articulos"];
-    });
-    
-  self.agregarArticulo = function() {
-    self.articulos.push({texto: '',
-    paragrafo: null,
-    asociado: false});  
-  }
-
-  self.eliminarArticulo = function(num) {
-    self.articulos.splice(num,1);  
-  }
-
-  self.asociarTabla = function(num) {
-    self.articulos.forEach(function(articulo){
-      if(self.articulos[num]==articulo){
-        articulo.asociado=true;
-      }else{
-        articulo.asociado=false;
-      }
-    })
-  }
-
-  self.verDocentesContratados = function() {
-  	$scope.ventanaDocentesContratados();
-  }
-
-  $scope.ventanaDocentesContratados = function() {
-	    $mdDialog.show({
-	      controller: DocentesContratadosController,
-	      templateUrl: 'views/contrato_resumen.html',
-	      parent: angular.element(document.body),
-	      clickOutsideToClose:true,
-	      fullscreen: $scope.customFullscreen
-	    })	  };
-
-	 function DocentesContratadosController($scope, $mdDialog) {
-      $scope.proyectos=self.proyectos;
-
-      $scope.contratados=self.contratados;
-	    
-      $scope.selectedIndex = 0;
-
-	    $scope.hide = function() {
-	      $mdDialog.hide();
-	    };
-
-	    $scope.cancel = function() {
-	      $mdDialog.cancel();
-	    };
-	  }
-
-  self.generarResolucion = function() {
-    var documento=getDocumento(self);
-    pdfMake.createPdf(documento).getDataUrl(function(outDoc){
-      document.getElementById('vistaPDF').src = outDoc;
-    });
-    $("#resolucion").show();
-  }
-
-  self.getNumeros = function(objeto) {
-  	var numeros=[];
-    if(objeto){
-    	for(var i = 0; i<objeto.length; i++){
-    		numeros.push(i);
-    	}
+    self.getNombreFacultad = function(index){
+      var nombreFacultad;
+      self.facultades.forEach(function(facultad){
+        if(facultad.Id==parseInt(index)){
+          nombreFacultad=facultad.Nombre;
+        }
+      })
+      return nombreFacultad;
     }
-    return numeros;
-  }
 
-  });
+  	self.crearResolucion = function(){
+      if(self.resolucion.numero && self.resolucion.facultad && self.resolucion.nivelAcademico && self.resolucion.dedicacion && self.resolucion.preambulo && self.resolucion.consideracion){
+    		swal({
+          title: 'Datos de la resolución',
+          html:
+            '<p><b>Número: </b>'+self.resolucion.numero.toString()+'</p>'+
+            '<p><b>Facultad: </b>'+self.getNombreFacultad(self.resolucion.facultad)+'</p>'+
+            '<p><b>Nivel académico: </b>'+self.resolucion.nivelAcademico+'</p>'+
+            '<p><b>Dedicación: </b>'+self.resolucion.dedicacion+'</p>'+
+            '<p><b>Los artículos son creados por defecto y pueden ser editados</b></p>',
+          type: 'info',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Guardar resolución',
+          cancelButtonText: 'Cancelar',
+          confirmButtonClass: 'btn btn-success',
+          cancelButtonClass: 'btn btn-danger',
+          buttonsStyling: false
+        }).then(function () {
+          self.guardarResolucion();
+        }, function (dismiss) {
+        })
+      }
+  	}
+
+    self.guardarResolucion = function(){
+      var resolucionData={
+        NumeroResolucion: self.resolucion.numero.toString(),
+        IdDependencia: parseInt(self.resolucion.facultad),
+        PreambuloResolucion: self.resolucion.preambulo,
+        ConsideracionResolucion: self.resolucion.consideracion
+      }
+      contratacion_request.post("resolucion",resolucionData).then(function(response){
+        var resolucionVinculacionDocenteData={
+          Id: response.data.Id,
+          IdFacultad: parseInt(self.resolucion.facultad),
+          Dedicacion: self.resolucion.dedicacion,
+          NivelAcademico: self.resolucion.nivelAcademico
+        }
+        contratacion_request.post("resolucion_vinculacion_docente",resolucionVinculacionDocenteData).then(function(response){
+          var numeroArticulo=1;
+          self.resolucion.articulos.forEach(function(articulo){
+            var articuloData={
+              Numero: numeroArticulo,
+              ResolucionId: {Id: response.data.Id},
+              Texto: articulo.texto,
+              TipoComponente: "Articulo"
+            }
+            contratacion_request.post("componente_resolucion",articuloData).then(function(response){
+              var numeroParagrafo=1;
+              if(articulo.paragrafos){
+                articulo.paragrafos.forEach(function(paragrafo){
+                  var paragrafoData={
+                    Numero: numeroParagrafo,
+                    ResolucionId: {Id: response.data.ResolucionId.Id},
+                    Texto: paragrafo.texto,
+                    TipoComponente: "Paragrafo",
+                    ComponentePadre: {Id: response.data.Id}
+                  }
+                  contratacion_request.post("componente_resolucion",paragrafoData).then(function(response){
+                  })
+                  numeroParagrafo++;
+                })
+              }
+            })
+            numeroArticulo++;
+          })
+          $window.location.href = '#/resolucion_lista';
+        });
+});
+}
+
+});
