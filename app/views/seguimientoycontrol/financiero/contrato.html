@@ -1,0 +1,59 @@
+<br>
+<div class="panel panel-default">
+  <div class="panel-body">
+          <center><h3 class="titulo-centrado">{{'SEGUIMIENTO_FINANCIERO' | translate}} {{sFcontrato.contrato.Id}}</h3></center>
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#/seguimientoycontrol/financiero/contrato" data-toggle="tab">{{'DATOS_CONTRATO' | translate}}</a>
+            </li>
+            <li><a href="#/seguimientoycontrol/financiero/ordenes_pago" data-toggle="tab">{{'ORDENES_PAGO' | translate}}</a>
+            </li>
+            <li><a href="#/seguimientoycontrol/financiero/estadisticas" data-toggle="tab">{{'ESTADISTICAS' | translate}}</a>
+            </li>
+          </ul>
+          <br/>
+      <div class="row">
+        <div class="col-md-3 panel panel-primary paneles">
+           <div class="panel-heading row"><div class="col-md-12"><center><h4><b>{{'DATOS_CONTRATISTA' | translate}}</b></h4></center></div></div>
+           <div class="panel-body">
+             <div class="col-md-6"><center><b>{{'APELLIDOS' | translate}}</b></center></div>
+             <div class="col-md-6">{{sFcontrato.persona.PrimerApellido}} {{sFcontrato.persona.SegundoApellido}}<br><br/></div>
+             <div class="col-md-6"><center><b>{{'NOMBRES' | translate}}</b></center></div>
+             <div class="col-md-6">{{sFcontrato.persona.PrimerNombre}} {{sFcontrato.persona.SegundoNombre}}<br><br/></div>
+             <div class="col-md-6"><b>{{'TIPO_DOCUMENTO' | translate}}</b></div>
+             <div class="col-md-6">{{sFcontrato.persona.TipoDocumento.ValorParametro}}<br><br/></div>
+             <div class="col-md-6"><b>{{'NUMERO_DOCUMENTO' | translate}}</b></div>
+             <div class="col-md-6">{{sFcontrato.contrato.ContratistaId}}<br><br/></div>
+             <div class="col-md-6"><b>{{'CARGO' | translate}}</b></div>
+             <div class="col-md-6">{{sFcontrato.persona.Cargo}}<br><br/></div>
+           </div>
+        </div>
+        <div class="col-md-3 panel panel-primary paneles">
+           <div class="panel-heading row"><div class="col-md-12"><center><h4><b>{{'DATOS_REGISTRO_PRESUPUESTAL' | translate}}</b></h4></center></div></div>
+           <div class="panel-body">
+             <div class="col-md-6"><b>{{'NUMERO_REGISTRO_PRESUPUESTAL' | translate}}</b></div>
+             <div class="col-md-6">Castillo Gonzalez<br><br/></div>
+             <div class="col-md-6"><b>{{'NOMBRE_REGISTRO_PRESUPUESTAL' | translate}}</b></div>
+             <div class="col-md-6">Diego Orlando<br><br/></div>
+             <div class="col-md-6"><b>{{'NUMERO_DISPONIBILIDAD' | translate}}</b></div>
+             <div class="col-md-6">Cedula ciudadania<br><br/></div>
+             <div class="col-md-6"><b>{{'NOMBRE_DISPONIBILIDAD' | translate}}</b></div>
+             <div class="col-md-6">1031138556</div>
+           </div>
+        </div>
+        <div class="col-md-3 panel panel-primary paneles">
+           <div class="panel-heading row"><div class="col-md-12"><center><h4><b>{{'DATOS_CONTRATO' | translate}}</b></h4></center></div></div>
+           <div class="panel-body">
+             <div class="col-md-6"><center><b>{{'CONTRATO' | translate}}</b></center></div>
+             <div class="col-md-6">{{sFcontrato.contrato.Id}}<br><br/></div>
+             <div class="col-md-6"><center><b>{{'VIGENCIA' | translate}}</b></center></div>
+             <div class="col-md-6">{{sFcontrato.contrato.Vigencia}}<br><br/></div>
+             <div class="col-md-6"><center><b>{{'FECHA_INICIO' | translate}}</b></center></div>
+             <div class="col-md-6">{{sFcontrato.contrato.Vigencia}}<br><br/></div>
+             <div class="col-md-6"><center><b>{{'FECHA_FIN' | translate}}</b></center></div>
+             <div class="col-md-6">{{sFcontrato.contrato.Vigencia}}<br><br/></div>
+             <div class="col-md-6"><center><b>{{'VALOR' | translate}}</b></center></div>
+             <div class="col-md-6">{{sFcontrato.contrato.ValorContrato | currency}}<br><br/></div>
+           </div>
+      </div>
+    </div>
+</div>

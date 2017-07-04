@@ -153,16 +153,14 @@ function NumeroALetras(num){
 
 function FormatoNumero(amount, decimals) {
 
-    amount += ''; // por si pasan un numero en vez de un string
-    amount = parseFloat(amount.replace(/[^0-9\.]/g, '')); // elimino cualquier cosa que no sea numero o punto
+    amount += ''; 
+    amount = parseFloat(amount.replace(/[^0-9\.]/g, '')); 
 
-    decimals = decimals || 0; // por si la variable no fue fue pasada
+    decimals = decimals || 0; 
 
-    // si no es un numero o es igual a cero retorno el mismo cero
     if (isNaN(amount) || amount === 0) 
         return parseFloat(0).toFixed(decimals);
 
-    // si es mayor o menor que cero retorno el valor formateado como numero
     amount = '' + amount.toFixed(decimals);
 
     var amount_parts = amount.split('.'),
