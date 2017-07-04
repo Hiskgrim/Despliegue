@@ -129,11 +129,7 @@ angular.module('contractualClienteApp')
                '<i title="{{\'CONFIGURAR_BTN\' | translate }}" class="fa fa-cog fa-lg faa-spin animated-hover"></i></a> ' +
                '</center>'
        
-           // cellTemplate: 
-            //'<div class="campo-boton"><button ng-if="!row.entity.FechaExpedicion" class="form-control fa fa-edit" ng-click="grid.appScope.verEditarResolucion(row)" title="Editar contenido de la resolucion"></button><button ng-if="row.entity.FechaExpedicion" class="form-control fa fa-edit" ng-click="grid.appScope.verEditarResolucion(row)" title="Editar contenido deh la resolución" disabled></button></div>'+
-            // '<div class="campo-boton"><button ng-if="!row.entity.FechaExpedicion" class="form-control fa fa-group" ng-click="grid.appScope.verEditardocentes(row)" title="Editar docentes asociados a la resolución"></button><button ng-if="row.entity.FechaExpedicion" class="form-control fa fa-group" ng-click="grid.appScope.verEditardocentes(row)" title="Editar docetes asociados a la resolución" disabled></button></div>'+
-            //'<div class="campo-boton"><button class="form-control fa fa-search" ng-click="grid.appScope.verVisualizarResolucion(row)" title="Vista previa de la resolucion"></button></button></div>'
-        }
+            }
       ]
     };
 

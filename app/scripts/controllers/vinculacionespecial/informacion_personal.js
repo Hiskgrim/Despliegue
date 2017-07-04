@@ -8,16 +8,16 @@
  * Controller of the clienteApp
  */
 angular.module('contractualClienteApp')
-  .controller('InformacionPersonalCtrl', function (contratacion_request,$scope,$mdDialog,idPersona) {
+  .controller('InformacionPersonalCtrl', function (agoraRequest,coreRequest,$scope,$mdDialog,idPersona) {
     
     var self = this;
     self.idPersona=idPersona;
 
-    contratacion_request.getOne("informacion_persona_natural",self.idPersona).then(function(response){
-    	self.persona=response.data;
+    agoraRequest.get("informacion_persona_natural","query=Id%3A"+self.idPersona).then(function(response){
+    	self.persona=response.data[0];
     	self.persona.FechaExpedicionDocumento = new Date(self.persona.FechaExpedicionDocumento).toLocaleDateString('es');
-    	contratacion_request.getOne("pais",self.persona.IdPaisNacimiento.Id).then(function(response){
-	    	self.persona.Pais=response.data.NombrePais;
+    	coreRequest.get("pais","query=Id%3A"+self.persona.IdPaisNacimiento).then(function(response){
+	    	self.persona.Pais=response.data[0].NombrePais;
 	    })
     })
 

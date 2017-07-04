@@ -76,9 +76,19 @@ getContenido=function(contenidoResolucion, contratados, proyectos){
 	  		contenido.push(getArticuloTexto(articulo, numero));
 	  		if(index==1){
 	  			proyectos.forEach(function(proyecto){
-	  				contenido.push({ text: proyecto.Nombre,
-	        			style: 'proyecto'});
-	  	  			contenido.push(getTabla(proyecto.Id, contratados, ['NombreCompleto', 'Documento', 'Expedicion', 'Categoria', 'Dedicacion', 'HorasSemanales', 'Semanas', 'ValorContrato']));
+	  				var proyectoVisible=false;
+	  				if(contratados){
+					    contratados.forEach(function(fila) {
+					    	if(fila.ProyectoCurricular==proyecto.Id){
+					         	proyectoVisible=true;
+					      	}
+					    });
+					}
+					if(proyectoVisible){
+		  				contenido.push({ text: proyecto.Nombre,
+		        			style: 'proyecto'});
+		  	  			contenido.push(getTabla(proyecto.Id, contratados, ['NombreCompleto', 'Documento', 'Expedicion', 'Categoria', 'Dedicacion', 'HorasSemanales', 'Semanas', 'ValorContrato']));
+	  				}
 	  			});
 	  		}
 	  		index++;

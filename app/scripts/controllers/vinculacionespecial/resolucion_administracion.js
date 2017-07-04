@@ -198,7 +198,7 @@ angular.module('contractualClienteApp')
 
     self.cancelarResolucion = function(row){
         var cancelacionPosible = true;
-        /*contratacion_request.getAll("vinculacion_docente/","query=IdResolucion.Id%3A"+row.entity.Id.toString()).then(function(response){
+        contratacion_request.getAll("vinculacion_docente/","query=IdResolucion.Id%3A"+row.entity.Id.toString()).then(function(response){
             var aux = response.data[response.data.length-1]
             response.data.forEach(function(vinculacion){
                 titan_request.getAll("detalle_liquidacion","query=NumeroContrato.Id%3A"+vinculacion.NumeroContrato).then(function(response){
@@ -210,7 +210,8 @@ angular.module('contractualClienteApp')
                         contratacion_request.getOne("resolucion", row.entity.Id).then(function(response){
                             var nuevaResolucion=response.data;
                             nuevaResolucion.Estado=false;
-                            contratacion_request.put("resolucion", nuevaResolucion.Id, nuevaResolucion).then(function(response){
+                            contratacion_request.put("resolucion/CancelarResolucion", nuevaResolucion.Id, nuevaResolucion).then(function(response){
+                                alert(JSON.stringify(response.data))
                                 self.cargarDatosResolucion();
                             })
                         })
@@ -222,22 +223,7 @@ angular.module('contractualClienteApp')
                     }
                 });
             })
-        });*/
-        contratacion_request.getOne("resolucion", row.entity.Id).then(function(response){
-            var nuevaResolucion=response.data;
-            nuevaResolucion.Estado=false;
-            contratacion_request.put("resolucion/CancelarResolucion", nuevaResolucion.Id, nuevaResolucion).then(function(response){
-                alert(JSON.stringify(response.data))
-                self.cargarDatosResolucion();
-            })
-        })
-        /*contratacion_request.getOne("resolucion", row.entity.Id).then(function(response){
-            var nuevaResolucion=response.data;
-            nuevaResolucion.Estado=false;
-            contratacion_request.put("resolucion", nuevaResolucion.Id, nuevaResolucion).then(function(response){
-                self.cargarDatosResolucion();
-            })
-        })*/
+        });
     }
 
     $scope.verRestaurarResolucion = function(row){

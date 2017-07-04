@@ -53,7 +53,7 @@ angular.module('contractualClienteApp')
       enableRowHeaderSelection: false,
       enableFiltering: true,
       enableHorizontalScrollbar: 0,
-      enableVerticalScrollbar: 0,
+      enableVerticalScrollbar: true,
       useExternalPagination: false,
       enableSelectAll: false,
       columnDefs : [
@@ -241,7 +241,7 @@ angular.module('contractualClienteApp')
                 });
               }else{
                 swal({
-                  text: $translate.instant('VALOR_CONTRATO_FORMATO')+FormatoNumero(response.data)+$translate.instant('MONEDA_CORRIENTE')+NumeroALetras(response.data).toLowerCase()+")",
+                  text: $translate.instant('VALOR_CONTRATO_FORMATO')+FormatoNumero(response.data)+$translate.instant('MONEDA_CORRIENTE')+self.NumeroALetras(response.data).toLowerCase()+")",
                   type: 'info',
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
@@ -467,5 +467,170 @@ angular.module('contractualClienteApp')
         locals: {idPersona: row.entity.Id}
       })
     };
+
+    self.Unidades = function(num){
+      switch(num)
+      {
+        case 1: return $translate.instant('UN');
+        case 2: return $translate.instant('DOS');
+        case 3: return $translate.instant('TRES');
+        case 4: return $translate.instant('CUATRO');
+        case 5: return $translate.instant('CINCO');
+        case 6: return $translate.instant('SEIS');
+        case 7: return $translate.instant('SIETE');
+        case 8: return $translate.instant('OCHO');
+        case 9: return $translate.instant('NUEVE');
+      }
+
+      return "";
+    }
+
+    self.Decenas = function(num){
+
+      var decena = Math.floor(num/10);
+      var unidad = num - (decena * 10);
+
+      switch(decena)
+      {
+        case 1:   
+          switch(unidad)
+          {
+            case 0: return $translate.instant('DIEZ');
+            case 1: return $translate.instant('ONCE');
+            case 2: return $translate.instant('DOCE');
+            case 3: return $translate.instant('TRECE');
+            case 4: return $translate.instant('CATORCE');
+            case 5: return $translate.instant('QUINCE');
+            case 6: return $translate.instant('DIECISEIS');
+            case 7: return $translate.instant('DIECISIETE');
+            case 8: return $translate.instant('DIECIOCHO');
+            case 9: return $translate.instant('DIECINUEVE');
+            //default: return "DIECI" + self.Unidades(unidad);
+          }
+        case 2:
+          switch(unidad)
+          {
+            case 0: return $translate.instant('VEINTE');
+            case 1: return $translate.instant('VEINTIUNO');
+            case 2: return $translate.instant('VEINTIDOS');
+            case 3: return $translate.instant('VEINTITRES');
+            case 4: return $translate.instant('VEINTICUATRO');
+            case 5: return $translate.instant('VEINTICINCO');
+            case 6: return $translate.instant('VEINTISEIS');
+            case 7: return $translate.instant('VEINTISIETE');
+            case 8: return $translate.instant('VEINTIOCHO');
+            case 9: return $translate.instant('VEINTINUEVE');
+            //default: return "VEINTI" + self.Unidades(unidad);
+          }
+        case 3: return self.DecenasY($translate.instant('TREINTA'), unidad);
+        case 4: return self.DecenasY($translate.instant('CUARENTA'), unidad);
+        case 5: return self.DecenasY($translate.instant('CINCUENTA'), unidad);
+        case 6: return self.DecenasY($translate.instant('SESENTA'), unidad);
+        case 7: return self.DecenasY($translate.instant('SETENTA'), unidad);
+        case 8: return self.DecenasY($translate.instant('OCHENTA'), unidad);
+        case 9: return self.DecenasY($translate.instant('NOVENTA'), unidad);
+        case 0: return self.Unidades(unidad);
+      }
+    }
+
+    self.DecenasY = function(strSin, numUnidades){
+      if (numUnidades > 0)
+        return strSin + $translate.instant('Y') + self.Unidades(numUnidades)
+
+      return strSin;
+    }
+
+    self.Centenas = function(num){
+
+      var centenas = Math.floor(num / 100);
+      var decenas = num - (centenas * 100);
+
+      switch(centenas)
+      {
+        case 1:
+          if (decenas > 0)
+            return $translate.instant('CIENTO')+ self.Decenas(decenas);
+          return $translate.instant('CIEN');
+        case 2: return $translate.instant('DOSCIENTOS') + self.Decenas(decenas);
+        case 3: return $translate.instant('TRESCIENTOS') + self.Decenas(decenas);
+        case 4: return $translate.instant('CUATROCIENTOS') + self.Decenas(decenas);
+        case 5: return $translate.instant('QUINIENTOS') + self.self.Decenas(decenas);
+        case 6: return $translate.instant('SEISCIENTOS') + self.Decenas(decenas);
+        case 7: return $translate.instant('SETECIENTOS') + self.Decenas(decenas);
+        case 8: return $translate.instant('OCHOCIENTOS') + self.Decenas(decenas);
+        case 9: return $translate.instant('NOVECIENTOS') + self.Decenas(decenas);
+      }
+
+      return self.Decenas(decenas);
+    }
+
+    self.Seccion = function(num, divisor, strSingular, strPlural){
+      var cientos = Math.floor(num / divisor)
+      var resto = num - (cientos * divisor)
+
+      var letras = "";
+
+      if (cientos > 0)
+        if (cientos > 1)
+          letras = self.Centenas(cientos) + " " + strPlural;
+        else
+          letras = strSingular;
+
+      if (resto > 0)
+        letras += "";
+
+      return letras;
+    }
+
+    self.Miles = function(num){
+      var divisor = 1000;
+      var cientos = Math.floor(num / divisor)
+      var resto = num - (cientos * divisor)
+
+      var strMiles = self.Seccion(num, divisor, $translate.instant('UN_MIL'), $translate.instant('MIL'));
+      var strCentenas = self.Centenas(resto);
+
+      if(strMiles == "")
+        return strCentenas;
+
+      return strMiles + " " + strCentenas;
+
+    }
+
+    self.Millones = function(num){
+      var divisor = 1000000;
+      var cientos = Math.floor(num / divisor)
+      var resto = num - (cientos * divisor)
+
+      var strMillones = self.Seccion(num, divisor, $translate.instant('UN_MILLON'), $translate.instant('MILLONES'));
+      var strMiles = self.Miles(resto);
+
+      if(strMillones == "")
+        return strMiles;
+
+      return strMillones + " " + strMiles;
+
+    }
+
+    self.NumeroALetras = function(num){
+      var data = {
+        numero: num,
+        enteros: Math.floor(num),
+        centavos: (((Math.round(num * 100)) - (Math.floor(num) * 100))),
+        letrasCentavos: "",
+        letrasMonedaPlural: $translate.instant('PESOS'),
+        letrasMonedaSingular: $translate.instant('PESO')
+      };
+
+      if (data.centavos > 0)
+        data.letrasCentavos = $translate.instant('CON')+ data.centavos + "/100";
+
+      if(data.enteros == 0)
+        return $translate.instant('CERO') + data.letrasMonedaPlural + " " + data.letrasCentavos;
+      if (data.enteros == 1)
+        return self.Millones(data.enteros) + " " + data.letrasMonedaSingular + " " + data.letrasCentavos;
+      else
+        return self.Millones(data.enteros) + " " + data.letrasMonedaPlural + " " + data.letrasCentavos;
+    }
 
   });
