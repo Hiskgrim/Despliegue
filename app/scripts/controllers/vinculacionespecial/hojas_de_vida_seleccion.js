@@ -204,7 +204,7 @@ angular.module('contractualClienteApp')
 
       self.personasSeleccionadas.forEach(function(personaSeleccionada){
         var vinculacionDocente = {
-          IdPersona: {Id: personaSeleccionada.Id},
+          IdPersona: personaSeleccionada.Id,
           NumeroHorasSemanales: self.datosValor.NumHorasSemanales,
           NumeroSemanas: self.datosValor.NumSemanas,
           IdResolucion: {Id: parseInt(self.idResolucion)},
@@ -218,6 +218,13 @@ angular.module('contractualClienteApp')
       contratacion_request.post("vinculacion_docente/InsertarVinculaciones",vinculacionesData).then(function(response){
           if(typeof(response.data)=="object"){
             self.cargarDatosPrecontratados();
+          }else{
+            swal({
+              title: $translate.instant('ERROR'),
+              text: $translate.instant('CONTRATO_NO_ALMACENADO'),
+              type: 'info',
+              confirmButtonText: $translate.instant('ACEPTAR')
+            })
           }
       })
     }
@@ -364,7 +371,7 @@ angular.module('contractualClienteApp')
       }
 
       var vinculacionCancelada = {
-        IdPersona: {Id: row.entity.Documento},
+        IdPersona: row.entity.Documento,
         NumeroHorasSemanales: row.entity.HorasSemanales,
         NumeroSemanas: row.entity.Semanas,
         IdResolucion: {Id: parseInt(self.idResolucion)},

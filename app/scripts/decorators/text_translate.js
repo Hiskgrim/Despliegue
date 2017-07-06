@@ -268,7 +268,7 @@
     TCO1: "Entre 24 y 40 horas semanales.",
     SEMANAS: "Semanas",
     REGLAS: "Reglas",
-    PROBLEMA: "Problem",
+    PROBLEMA: "Problema",
     VER_INFO_PERSONAL_BTN: "Ver información personal",
     VER_INFO_ACADEMICA: "Ver información académica",
     VER_EXP_LABORAL: "Ver experiencia laboral",
@@ -334,6 +334,7 @@
     CON: "CON",
     CERO: "CERO",
     Y: " Y ",
+    CONTRATO_NO_ALMACENADO: "El contrato no se ha podido almacenar corretamente",
     /*
     resolucion_lista.js
     */
@@ -714,7 +715,8 @@
     PESO: "PESO",
     CON: "WITH",
     CERO: "ZERO",
-    Y: "",
+    Y: "",    
+    CONTRATO_NO_ALMACENADO: "The contract could not be stored correctly",
     /*
     resolucion_lista.js
     */
