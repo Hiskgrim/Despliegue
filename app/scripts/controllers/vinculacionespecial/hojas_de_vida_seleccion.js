@@ -176,7 +176,7 @@ angular.module('contractualClienteApp')
           self.precontratados.data.forEach(function(row){
             row.NombreCompleto = row.PrimerNombre + ' ' + row.SegundoNombre + ' ' + row.PrimerApellido + ' ' + row.SegundoApellido;
             contratacion_mid_request.post("calculo_salario/"+self.datosFiltro.NivelAcademico+"/"+row.Documento+"/"+row.Semanas+"/"+row.HorasSemanales+"/"+row.Categoria.toLowerCase()+"/"+row.Dedicacion.toLowerCase()).then(function(response){
-              row.ValorContrato=FormatoNumero(response.data,0);
+              row.ValorContrato=self.FormatoNumero(response.data,0);
             });          
           });
         }
@@ -248,7 +248,7 @@ angular.module('contractualClienteApp')
                 });
               }else{
                 swal({
-                  text: $translate.instant('VALOR_CONTRATO_FORMATO')+FormatoNumero(response.data)+$translate.instant('MONEDA_CORRIENTE')+self.NumeroALetras(response.data).toLowerCase()+")",
+                  text: $translate.instant('VALOR_CONTRATO_FORMATO')+self.FormatoNumero(response.data)+$translate.instant('MONEDA_CORRIENTE')+self.NumeroALetras(response.data).toLowerCase()+")",
                   type: 'info',
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
@@ -639,5 +639,27 @@ angular.module('contractualClienteApp')
       else
         return self.Millones(data.enteros) + " " + data.letrasMonedaPlural + " " + data.letrasCentavos;
     }
+
+    self.FormatoNumero=function(amount, decimals) {
+
+        amount += ''; 
+        amount = parseFloat(amount.replace(/[^0-9\.]/g, '')); 
+
+        decimals = decimals || 0; 
+
+        if (isNaN(amount) || amount === 0) 
+            return parseFloat(0).toFixed(decimals);
+
+        amount = '' + amount.toFixed(decimals);
+
+        var amount_parts = amount.split('.'),
+            regexp = /(\d+)(\d{3})/;
+
+        while (regexp.test(amount_parts[0]))
+            amount_parts[0] = amount_parts[0].replace(regexp, '$1' + ',' + '$2');
+
+        return amount_parts.join('.');
+    }
+
 
   });

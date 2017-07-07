@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name administrativaClienteApp.controller:ContratoResumenCtrl
+ * @name contractualClienteApp.controller:ContratoResumenCtrl
  * @description
  * # ContratoResumenCtrl
- * Controller of the administrativaClienteApp
+ * Controller of the contractualClienteApp
  */
-angular.module('administrativaClienteApp')
+angular.module('contractualClienteApp')
   .controller('ContratoResumenCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

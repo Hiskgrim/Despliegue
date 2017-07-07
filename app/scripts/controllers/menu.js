@@ -6,19 +6,19 @@
  * # menuCtrl
  * Controller of the contractualClienteApp
  */
- angular.module('contractualClienteApp')
- .controller('menuCtrl', function($location, $http, $scope, token_service, notificacion, $translate, $route) {
-  var paths = [];
-  $scope.language = {
-    es:"btn btn-primary btn-circle btn-outline active",
-    en:"btn btn-primary btn-circle btn-outline"
-  };
+angular.module('contractualClienteApp')
+.controller('menuCtrl', function($location, $http, $scope, token_service, notificacion, $translate, $route) {
+    var paths = [];
+    $scope.language = {
+        es:"btn btn-primary btn-circle btn-outline active",
+        en:"btn btn-primary btn-circle btn-outline"
+    };
 
-  $scope.notificacion = notificacion;
-  $scope.actual = "";
-  $scope.token_service = token_service;
-  $scope.breadcrumb = [];
-  $scope.menu_service = [
+    $scope.notificacion = notificacion;
+    $scope.actual = "";
+    $scope.token_service = token_service;
+    $scope.breadcrumb = [];
+    $scope.menu_service = [
       { //aqui va el servicio de el app de configuracion
         "Id": 3,
         "Nombre": "Seguimiento y control",
@@ -42,7 +42,7 @@
           "Url": "",
           "Opciones": null
         }
-        ]
+      ]
       },
     { //aqui va el servicio de el app de configuracion
       "Id": 2,
@@ -72,8 +72,8 @@
           "Url": "rp_solicitud_personas",
           "Opciones": null
         }
-        ]
-      },
+      ]
+    },
     { //RP
       "Id": 6,
       "Nombre": "Vinculación especial",
@@ -93,7 +93,7 @@
       }
       ]
     }
-    ];
+  ];
 
     var recorrerArbol = function(item, padre) {
       var padres = "";
@@ -132,19 +132,19 @@
     });
 
     $scope.changeLanguage = function (key){
-      $translate.use(key);
-      switch (key) {
-        case 'es':
-        $scope.language.es = "btn btn-primary btn-circle btn-outline active";
-        $scope.language.en = "btn btn-primary btn-circle btn-outline";
-        break;
-        case 'en':
-        $scope.language.en = "btn btn-primary btn-circle btn-outline active";
-        $scope.language.es = "btn btn-primary btn-circle btn-outline";
-        break;
-        default:
-      }
-      $route.reload();
+        $translate.use(key);
+        switch (key) {
+            case 'es':
+                $scope.language.es = "btn btn-primary btn-circle btn-outline active";
+                $scope.language.en = "btn btn-primary btn-circle btn-outline";
+                break;
+            case 'en':
+                $scope.language.en = "btn btn-primary btn-circle btn-outline active";
+                $scope.language.es = "btn btn-primary btn-circle btn-outline";
+                break;
+            default:
+        }
+        $route.reload();
     };
     //Pendiente por definir json del menu
     (function($) {

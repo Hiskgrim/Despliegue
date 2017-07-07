@@ -108,7 +108,7 @@ angular.module('contractualClienteApp')
             })
             numeroArticulo++;
           })
-          $window.location.href = '#/resolucion_lista';
+          $window.location.href = '#/vinculacionespecial/resolucion_lista';
         });
 });
 }

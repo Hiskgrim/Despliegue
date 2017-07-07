@@ -175,11 +175,6 @@ angular
         controller: 'ContratoRegistroCtrl',
         controllerAs: 'contratoRegistro'
       })
-      .when('/vinculacionespecial/contrato_detalle', {
-        templateUrl: 'views/vinculacionespecial/contrato_detalle.html',
-        controller: 'ContratoDetalleCtrl',
-        controllerAs: 'contratoDetalle'
-      })
       .when('/vinculacionespecial/resolucion_gestion', {
         templateUrl: 'views/vinculacionespecial/resolucion_gestion.html',
         controller: 'ResolucionGestionCtrl',
