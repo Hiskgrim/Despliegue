@@ -7,7 +7,7 @@
  * # TextTranslate
  * Decorator of the contractualClienteApp
  */
- var text_es = {
+var text_es = {
   BTN: {
     VER: "Ver",
     SELECCIONAR: "Seleccionar",
@@ -18,13 +18,84 @@
     SOLICITAR_RP:"Solicitar RP",
     QUITAR_RUBRO: "Quitar",
     VER_SEGUIMIENTO_FINANCIERO:"Ver seguimiento financiero",
-    BUSCAR: "Buscar",
+    APROBAR: "Aprobar",
+    RECHAZAR: "Rechazar",
+    SOLICITAR_CDP: "Solicitar CDP"
   },
   TITULO: "GENERATOR-OAS",
   MENSAJE_INICIAL: "Ahora puede comenzar con el desarrollo ...",
+  SELECCIONAR: "Seleccionar",
+  //solicitud_necesidad
   NECESIDADES: "Necesidades",
   NECESIDAD: "Necesidad",
   SOLICITUD: "Solicitud",
+  SOLICITUD_NECESIDAD: "Solicitud de Necesidad",
+  DURACION: "Duración",
+  UNICO_PAGO: "Único Pago",
+  HASTA_AGOTAR_PRESUPUESTO: "Hasta Agotar Presupuesto",
+  AÑOS: "Años",
+  MESES: "Meses",
+  DIAS: "Días",
+  RESPONSABLES: "Responsables",
+  DEPENDENCIA_SOLICITANTE: "Dependencia Solicitante",
+  JEFE_DEPENDENCIA_SOLICITANTE: "Jefe Dependencia Solicitante",
+  DEPENDENCIA_DESTINO: "Dependencia Destino",
+  JEFE_DEPENDENCIA_DESTINO: "Jefe Dependencia Destino",
+  ROL: "Rol",
+  ORDENADOR_GASTO: "Ordenador del Gasto",
+  GENERAL: "General",
+  PLAN_ANUAL_ADQUISICIONES: "Plan Anual de Adquisiones",
+  ESTUDIO_MERCADO: "Estudio de Mercado",
+  ANALISIS_RIESGOS: "Análisis de Riesgos",
+  SUPERVISOR: "Supervisor",
+  OBJETO_CONTRACTUAL: "Objeto Contractual",
+  OBJETO_CONTRATO: "Objeto de Contrato",
+  JUSTIFICACION_CONTRATO: "Justificación de Contrato",
+  DOCUMENTOS: "Documentos",
+  ENLACE: "Enlace",
+  ESPECIFICACIONES: "Especificaciones",
+  TIPO_SERVICIO: "Tipo de Servicio",
+  PERFIL: "Perfil",
+  EL_TIPO_DE: "el Tipo de",
+  SNIES_AREA: "Snies Área",
+  SNIES_NUCLEO_BASICO: "Snies Núcleo Básico",
+  CANTIDAD: "Cantidad",
+  ACTIVIDADES_ESPECIFICAS: "Actividades Específicas",
+  ELEMENTOS: "Elementos",
+  ELEMENTO: "Elemento",
+  UNIDAD_MEDIDA: "Unidad de Medida",
+  VALOR_UNITARIO: "Valor Unitario",
+  IVA: "IVA",
+  VALOR_IVA: "Valor IVA",
+  VALOR_TOTAL: "Valor Total",
+  REQUISITOS_MINIMOS: "Requisitos mínimos",
+  FINANCIACION: "Financiación",
+  TIPO_RUBRO: "Tipo de Rubro",
+  VALOR_SOLICITADO: "Valor Solicitado",
+  TOTAL_FINANCIACION: "Total Financiación",
+  //lista_documentos_legales
+  MARCO_LEGAL: "Marco Legal",
+  NOMBRE_DOCUMENTO: "Nombre del Documento",
+  VER: "Ver",
+  //lista_actividades_economicas
+  ACTIVIDADES_ECONOMICAS: "Actividades Económicas",
+  //lista_subgrupos_catalogos
+  CATALOGO: "Catálogo",
+  PRODCUTOS: "Productos",
+  //lista_apropiaciones
+  APROPIACIONES: "Apropiaciones",
+  APROPIACIONES_VIGENCIA: "Apropiaciones de la Vigencia",
+  CODIGO_RUBRO: "Código del Rubro",
+  DESCRIPCION_RUBRO: "Descripción del Rubro",
+  SALDO: "Saldo",
+  //fuentes_apropiacion
+  FUENTES_FINANCIAMIENTO_APROPIACION: "Fuentes de Financiamiento de la Apropiación",
+  //necesidades
+  GESTION_NECESIDADES: "Gestión de Necesidades",
+  NUMERO_ELABORACION: "No. de Elaboración",
+  //visualizar_necesidad
+  DE: "de",
+  MONTO: "Monto",
   //SOLICITUD RP
   ERROR: "Error",
   SALIR:"Salir",
@@ -38,10 +109,10 @@
   RESPONSABLE_DOCUMENTO: "Responsable documento",
   RESPONSABLE: "Responsable",
   DATOS_APROPIACIONES: "Datos de las apropiaciones",
-  MODALIDAD_SELECCION: "Modalidad Selección",
+  MODALIDAD_SELECCION: "Modalidad de Selección",
   CONTRATO: "Contrato",
   VIGENCIA_CONTRATO: "Vigencia contrato",
-  FUENTE:"Fuente",
+  FUENTE:"Fuente de Financiamiento",
   SOLICITUD_PERSONAS:"Contratos para solicitud del registro presupuestal",
   VIGENCIA_ACTUAL:"Vigencia Actual ",
   VIGENCIA_SELECCIONADA:"Vigencia Seleccionada ",
@@ -55,7 +126,6 @@
   NOMBRE_CONTRATISTA: "Nombre",
   DOCUMENTO_CONTRATISTA: "No Documento",
   NOMBRE: "Nombre",
-  CONTRATO: "Contrato",
   FUENTE_FINANCIAMIENTO: "Fuente Financiamiento",
   VALOR: "Valor",
   COMPROMISO: "Compromiso",
@@ -65,7 +135,7 @@
   VALOR_RP:"Valor registro presupuestal",
   SALDO_AP:"Saldo apropiación",
   CDP:"CDP",
-  CODIGO: "Codigo",
+  CODIGO: "Código",
   CONSECUTIVO:"Consecutivo",
   OBJETIVO:"Objetivo",
   OBJETO:"Objeto",
@@ -73,8 +143,8 @@
   //SEGUMIENTO FINANCIERO
   SEGUIMIENTO_FINANCIERO:"Seguimiento financiero del contrato",
   DATOS_CONTRATO:"Datos contrato",
-  ORDENES_PAGO: "Ordenes pago",
-  ESTADISTICAS : "Estadisticas",
+  ORDENES_PAGO: "Órdenes pago",
+  ESTADISTICAS : "Estadísticas",
   DATOS_FINANCIEROS_CONTRATO: "Datos financieros del contrato",
   DATOS_CONTRATISTA: "Datos contratista",
   APELLIDOS: "Apellidos",
@@ -83,6 +153,8 @@
   NUMERO_DOCUMENTO : "No documento",
   FECHA_INICIO:"Fecha inicio",
   FECHA_FIN:"Fecha fin",
+  FECHA:"Fecha",
+  TIPO:"Tipo",
   DATOS_REGISTRO_PRESUPUESTAL:"Datos del registro presupuestal",
   NUMERO_REGISTRO_PRESUPUESTAL: "No RP",
   NOMBRE_REGISTRO_PRESUPUESTAL: "Nombre RP",
@@ -92,18 +164,44 @@
   FECHA_ORDEN: "Fecha orden",
   VALOR_BRUTO: "Valor bruto",
   LINEA_ORDEN_PAGO:"Linea del tiempo de ordenes de pago",
-  ESTADISTICAS_GENERALES: "Estadisticas generales",
+  ESTADISTICAS_GENERALES: "Estadísticas generales",
   VALOR_TOTAL_CONTRATO: "Valor total contrato",
   VALOR_MENSUAL: "Valor mensual",
   VALOR_TOTAL_PAGADO:"Valor total pagado",
   VALOR_RESTANTE:"Valor restante",
   PORCENTAJE_PAGADO:"Porcentaje pagado",
   PORCENTAJE_RESTANTE:"Porcentaje restante",
-  GRAFICO_BARRAS_CONTRATO:"Grafico de barras del contrato",
+  PORCENTAJE:"Porcentaje",
+  GRAFICO_BARRAS_CONTRATO:"Gráfico de barras del contrato",
   CARGO:"Cargo",
-  //SEGUIMIENTO LEGAL
-  NOVEDADES: "Novedades",
-     /*
+  NUMERO_COMPROMISO:"No compromiso" ,
+  FECHA_REGISTRO: "Fecha registro",
+  VIGENCIA_PRESUPUESTO: "Vigencia presupuesto",
+  PRESUPUESTO: "Presupuesto",
+  VALOR_ORDEN:"Valor orden",
+  VALOR_NETO:"Valor neto",
+  VIGENCIA_ORDEN: "Vigencia orden",
+  SELECCIONAR_ORDEN_PAGO:"Seleccione una orden de pago",
+  NO_CDP_REGISTRADAS: "No existe disponibilidades o registros presupuestales registradas para este contrato",
+  POR_FAVOR_ESPERE:"Por favor espere",
+  CARGANDO_DATOS: "Los datos se están cargando",
+  VALOR_ACUMULADO: "Valor acumulado",
+  PORCENTAJE_ORDEN: "Porcentaje orden",
+  PORCENTAJE_ACUMULADO: "Porcentaje acumulado",
+  ORDEN:"Orden",
+  ACUMULADO:"Acumulado",
+  TOTAL:"Total",
+  UNITARIO:"Unitario",
+  NO_HAY_DATOS_REDIRIGIR:"No hay datos para mostrar, será redirigido al menú anterior",
+
+
+
+
+
+
+
+
+  /*
     contrato_detalle.html
     */
     INFORMACION_CONTRATO: "Información contrato",   
@@ -131,12 +229,12 @@
     HORAS_SEMANALES: "Horas semanales",
     PERIODO_VINCULACION: "Periodo vinculación",
     VALOR_CONTRATO: "Valor del contrato",
-	/*
-	Contrato_registro.html
-	*/
-	DATOS_BASICOS: "Información básica del contrato",
-	DISPONIBILIDAD: "Disponibilidad",
-	JUSTIFICACION_Y_OBSERVACIONES: "Justificación y observaciones",
+  /*
+  Contrato_registro.html
+  */
+  DATOS_BASICOS: "Información básica del contrato",
+  DISPONIBILIDAD: "Disponibilidad",
+  JUSTIFICACION_Y_OBSERVACIONES: "Justificación y observaciones",
     /*
     Experiencia_laboral_detalle.html
     */
@@ -383,25 +481,29 @@
     contrato_resumen.html
     */
     DOCENTES_CONTRATADOS_ACTUAL: "DOCENTES CONTRATADOS - PERIODO ACTUAL",
-  };
 
-  var text_en = {
-    TITULO: "GENERATOR-OAS",
-    MENSAJE_INICIAL: "Now get to start to develop ...",
-    NECESIDADES: "Needs",
-    NECESIDAD: "Need",
-    BTN: {
-      VER: "See",
-      SELECCIONAR: "Choose",
-      CANCELAR: "Cancel",
-      CONFIRMAR: "Confirm",
-      AGREGAR: "Add",
-      REGISTRAR: "Register",
-      SOLICITAR_RP:"RP request",
-      QUITAR_RUBRO: "Delete",
-      VER_SEGUIMIENTO_FINANCIERO:"See financial monitoring",
-      BUSCAR: "Search",
-    },
+};
+
+var text_en = {
+  TITULO: "GENERATOR-OAS",
+  MENSAJE_INICIAL: "Now get to start to develop ...",
+  BTN: {
+    VER: "See",
+    SELECCIONAR: "Choose",
+    CANCELAR: "Cancel",
+    CONFIRMAR: "Confirm",
+    AGREGAR: "Add",
+    REGISTRAR: "Register",
+    SOLICITAR_RP:"RP request",
+    QUITAR_RUBRO: "Delete",
+    APROBAR: "Approbe",
+    RECHAZAR: "Reject",
+    SOLICITAR_CDP: "CDP Request",
+    VER_SEGUIMIENTO_FINANCIERO:"See financial monitoring"
+  },
+  SELECCIONAR: "Select",
+  NECESIDADES: "Needs",
+  NECESIDAD: "Need",
   //SOLICITUD RP
   ERROR: "Error",
   SALIR:"Exit",
@@ -411,6 +513,75 @@
   VIGENCIA_SOLICITUD: "Request validity",
   FECHA_SOLICITUD: "Request date",
   NUMERO_CONTRATO: "Contract number",
+  SOLICITUD: "Request",
+  SOLICITUD_NECESIDAD: "Need Request",
+  DURACION: "Duration",
+  UNICO_PAGO: "Single Payment",
+  HASTA_AGOTAR_PRESUPUESTO: "Until the Budget Had Been Used Up",
+  AÑOS: "Years",
+  MESES: "Months",
+  DIAS: "Days",
+  RESPONSABLES: "Responsible",
+  DEPENDENCIA_SOLICITANTE: "Requesting Unit",
+  JEFE_DEPENDENCIA_SOLICITANTE: "Boss of Requesting Unit",
+  DEPENDENCIA_DESTINO: "Destination Unit",
+  JEFE_DEPENDENCIA_DESTINO: "Boss of Destination Unit",
+  ROL: "Role",
+  ORDENADOR_GASTO: "Expenditure Authorizer",
+  GENERAL: "General",
+  PLAN_ANUAL_ADQUISICIONES: "Annual Procurement Plan",
+  ESTUDIO_MERCADO: "Market Survey",
+  ANALISIS_RIESGOS: "Risk Analysis",
+  SUPERVISOR: "Supervisor",
+  OBJETO_CONTRACTUAL: "Contractual Object",
+  OBJETO_CONTRATO: "Contract Object",
+  JUSTIFICACION_CONTRATO: "Contract Justification",
+  DOCUMENTOS: "Documents",
+  ENLACE: "Link",
+  ESPECIFICACIONES: "Specifications",
+  TIPO_SERVICIO: "Type of Service",
+  PERFIL: "Profile",
+  EL_TIPO_DE: "the Type of",
+  SNIES_AREA: "Snies Area",
+  SNIES_NUCLEO_BASICO: "Snies Basic Core",
+  CANTIDAD: "Quantity",
+  ACTIVIDADES_ESPECIFICAS: "Specific Activities",
+  ELEMENTOS: "Elements",
+  ELEMENTO: "Element",
+  UNIDAD_MEDIDA: "Unit of Measurement",
+  VALOR_UNITARIO: "Unit Value",
+  IVA: "IVA",
+  VALOR_IVA: "IVA Value",
+  VALOR_TOTAL: "Total Value",
+  REQUISITOS_MINIMOS: "Minimum Requirements",
+  FINANCIACION: "Financing",
+  TIPO_RUBRO: "Type of Line Item",
+  VALOR_SOLICITADO: "Requested Value",
+  TOTAL_FINANCIACION: "Total Financing",
+  //lista_documentos_legales
+  MARCO_LEGAL: "Legal Framework",
+  NOMBRE_DOCUMENTO: "Document Name",
+  VER: "Details",
+  //lista_actividades_economicas
+  ACTIVIDADES_ECONOMICAS: "Economic Activities",
+  //lista_subgrupos_catalogos
+  CATALOGO: "Catalogue",
+  PRODCUTOS: "Products",
+  //lista_apropiaciones
+  APROPIACIONES: "Appropiations",
+  APROPIACIONES_VIGENCIA: "Validity Appropiations of",
+  CODIGO_RUBRO: "Line Item Code",
+  DESCRIPCION_RUBRO: "Line Item Description",
+  SALDO: "Balance",
+  //fuentes_apropiacion
+  FUENTES_FINANCIAMIENTO_APROPIACION: "Appropiations Funding Source",
+  //necesidades
+  GESTION_NECESIDADES: "Managment Needs",
+  NUMERO_ELABORACION: "No. of Elaboration",
+  //visualizar_necesidad
+  DE: "of",
+  MONTO: "Amount",
+  //SOLICITUD RP
   RESPONSABLE_DOCUMENTO: "Person responsible identification",
   SELECCIONE_UNA_VIGENCIA:"Choose a diferente validity",
   RESPONSABLE: "Person responsible",
@@ -432,7 +603,6 @@
   NOMBRE_CONTRATISTA: "Name",
   DOCUMENTO_CONTRATISTA: "Identification",
   NOMBRE: "Name",
-  CONTRATO: "Contract",
   FUENTE_FINANCIAMIENTO: "Funding source",
   VALOR: "Value",
   COMPROMISO: "Agreement",
@@ -460,6 +630,8 @@
   NUMERO_DOCUMENTO : "Document number",
   FECHA_INICIO:"Start date",
   FECHA_FIN:"End date",
+  FECHA:"Date",
+  TIPO:"Type",
   DATOS_REGISTRO_PRESUPUESTAL:"Budget register data",
   NUMERO_REGISTRO_PRESUPUESTAL: "Budget register number",
   NOMBRE_REGISTRO_PRESUPUESTAL: "Budget register name",
@@ -476,10 +648,34 @@
   VALOR_RESTANTE:"Remaining value",
   PORCENTAJE_PAGADO:"Paid percentage",
   PORCENTAJE_RESTANTE:"Remaining percentage",
+  PORCENTAJE:"Percentage",
   GRAFICO_BARRAS_CONTRATO:"Contract bar graph",
-  CARGO:"Post",
-  //SEGUIMIENTO LEGAL
-  NOVEDADES: "Novedades",
+  CARGO:"Position",
+  NUMERO_COMPROMISO:"Compromise number" ,
+  FECHA_REGISTRO: "Register date",
+  VIGENCIA_PRESUPUESTO: "Budget validity",
+  PRESUPUESTO: "Budget",
+  VALOR_ORDEN:"Order value",
+  VALOR_NETO:"Net value",
+  VIGENCIA_ORDEN: "Validity order",
+  SELECCIONAR_ORDEN_PAGO:"Choose a pay order",
+  NO_CDP_REGISTRADAS: "There are not availabilities registered for this contract",
+  POR_FAVOR_ESPERE:"Please wait",
+  CARGANDO_DATOS: "Data is loading",
+  VALOR_ACUMULADO: "Accumulate value",
+  PORCENTAJE_ORDEN: "Order percentage",
+  PORCENTAJE_ACUMULADO: "Accumulate percentage",
+  ORDEN:"Order",
+  ACUMULADO:"Accumulate",
+  TOTAL:"Total",
+  UNITARIO:"Unit",
+  NO_HAY_DATOS_REDIRIGIR:"There are no data to show you will be redirected to the previous menu",
+
+
+
+
+
+
 
   /*
     contrato_detalle.html
@@ -510,11 +706,11 @@
     PERIODO_VINCULACION: "Entailment period",
     VALOR_CONTRATO: "Value of contract",
     /*
-	Contrato_registro.html
-	*/
-	DATOS_BASICOS: "Basic contract information",
-	DISPONIBILIDAD: "Availability",
-	JUSTIFICACION_Y_OBSERVACIONES: "Justification and observations",
+  Contrato_registro.html
+  */
+  DATOS_BASICOS: "Basic contract information",
+  DISPONIBILIDAD: "Availability",
+  JUSTIFICACION_Y_OBSERVACIONES: "Justification and observations",
     /*
     Experiencia_laboral_detalle.html
     */
@@ -765,13 +961,15 @@
     contrato_resumen.html
     */
     DOCENTES_CONTRATADOS_ACTUAL: "TEACHERS CONTRACTED - CURRENT PERIOD",
-  };
 
-  angular.module('contractualClienteApp')
+  
+};
+
+angular.module('contractualClienteApp')
   .config(function($translateProvider) {
     $translateProvider
-    .translations("es", text_es)
-    .translations("en", text_en);
+      .translations("es", text_es)
+      .translations("en", text_en);
     $translateProvider.preferredLanguage("es");
     $translateProvider.useSanitizeValueStrategy("sanitizeParameters");
-  });
+});

@@ -31,19 +31,20 @@ angular.module('contractualClienteApp')
         enableVerticalScrollbar: 0,
         enableSelectAll: true,
         columnDefs: [{
-            field: 'Fuente.Descripcion',
-            displayName: $scope.fuente,
+            field: 'FuenteFinanciamiento.Descripcion',
+            displayName: $translate.instant('FUENTE'),
             headerCellClass: $scope.highlightFilteredHeader + 'text-center text-info',
             cellTooltip: function(row) {
-              return row.entity.Fuente.Descripcion;
+              return row.entity.FuenteFinanciamiento.Descripcion;
             }
-          },
+          }/*,
           {
              field: 'Valor',
-             displayName: 'Valor',
+             displayName: $translate.instant('VALOR'),
+             cellTemplate: '<div align="right">{{row.entity.Valor | currency}}</div>',
              headerCellClass: $scope.highlightFilteredHeader + 'text-center text-info',
-             cellTemplate: '<div align="right">{{row.entity.Valor | currency }}</div>',
-            }
+             //cellTemplate: '<div align="right">{{row.entity.Valor | currency }}</div>',
+           }*/
         ]
       };
 
@@ -55,7 +56,7 @@ angular.module('contractualClienteApp')
         });
       };
 
-      financieraRequest.get('fuente_financiacion_apropiacion',$.param({
+      financieraRequest.get('fuente_financiamiento_apropiacion',$.param({
         query: "Apropiacion:"+$scope.apropiacion+",Dependencia:"+$scope.dependenciasolicitante
       })).then(function(response) {
 

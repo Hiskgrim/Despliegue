@@ -14,7 +14,7 @@
 
    self.idResolucion=$routeParams.idResolucion;
 
-   contratacion_request.getAll("facultad").then(function(response){
+  contratacion_request.getAll("facultad").then(function(response){
     self.facultades=response.data;
   });
 
@@ -27,12 +27,22 @@
     contratacion_request.getOne("contenido_resolucion",self.idResolucion).then(function(response){
       self.contenidoResolucion=response.data;
       contratacion_request.getOne("ordenador_gasto",self.datosFiltro.IdFacultad).then(function(response){
-        self.contenidoResolucion.ordenadorGasto=response.data;
+        if(response.data==null){
+          self.contenidoResolucion.ordenadorGasto={Cargo: "Vicerector académico ILUD"}
+        }else{
+          self.contenidoResolucion.ordenadorGasto=response.data;
+        }
       });
     });
     self.datosFiltro.IdFacultad=self.datosFiltro.IdFacultad.toString();
     contratacion_request.getAll("proyecto_curricular/"+self.datosFiltro.NivelAcademico.toLowerCase()+"/"+self.datosFiltro.IdFacultad).then(function(response){
-      self.proyectos=response.data;
+      if(response.data==null){
+        contratacion_request.getAll("facultad/"+self.datosFiltro.IdFacultad).then(function(response){
+          self.proyectos=[response.data]
+        });
+      }else{
+        self.proyectos=response.data;
+      }
     });
     contratacion_request.getAll("precontratado/"+self.idResolucion.toString()).then(function(response){    
       self.contratados=response.data;
@@ -171,13 +181,17 @@ self.verDocentesContratados = function() {
 }
 
 $scope.ventanaDocentesContratados = function() {
- $mdDialog.show({
-   controller: DocentesContratadosController,
-   templateUrl: 'views/vinculacionespecial/contrato_resumen.html',
-   parent: angular.element(document.body),
-   clickOutsideToClose:true,
-   fullscreen: $scope.customFullscreen
- })	  };
+
+  $mdDialog.show({
+        controller: "ContratoResumenCtrl",
+        controllerAs: "contratoResumen",
+        templateUrl: 'views/vinculacionespecial/contrato_resumen.html',
+        parent: angular.element(document.body),
+        clickOutsideToClose:true,
+        fullscreen: true,
+        locals: {idResolucion: self.idResolucion}
+      })
+  };
 
  function DocentesContratadosController($scope, $mdDialog) {
   $scope.proyectos=self.proyectos;

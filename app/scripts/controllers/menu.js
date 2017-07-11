@@ -33,7 +33,7 @@ angular.module('contractualClienteApp')
         {
           "Id": 2,
           "Nombre": "Segumiento Legal",
-          "Url": "seguimientoycontrol/legal",
+          "Url": "",
           "Opciones": null
         },
         {
@@ -74,7 +74,7 @@ angular.module('contractualClienteApp')
         }
       ]
     },
-    { //RP
+    { 
       "Id": 6,
       "Nombre": "Vinculación especial",
       "Url": "",

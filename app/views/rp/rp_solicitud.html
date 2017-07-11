@@ -192,7 +192,7 @@
           <form class="form-horizontal" ng-show="rpSolicitud.gridOptions_rubros.data.length>0">
             <fieldset>
               <h3>{{'DATOS_APROPIACIONES' | translate }}</h3>
-              <div ui-grid="rpSolicitud.gridOptions_rubros" ng-style="getTableStyle()"  ui-grid-selection ui-grid-auto-resize class="col-md-11" ng-style="getTableStyle()"></div>
+              <div ui-grid="rpSolicitud.gridOptions_rubros" ui-grid-selection ui-grid-auto-resize class="col-md-11" ng-style="getTableStyle()"></div>
 
               <div class="row">
                 <div class="col-md-4 col-md-offset-4">
@@ -231,9 +231,6 @@
                   </div>
                 </div>
                 <br><br>
-                <div class="col-sm-12" ng-show="rubro.FuenteFinanciamiento!=null && rubro.FuenteFinanciamiento.Id!=0">
-                  <fuentes-apropiacion apropiacion = "rubro.Apropiacion.Id" fuenteapropiacion = "seleccionado.Descripcion" dependenciasolicitante="rpSolicitud.dependencia_solicitante_data.DependenciaId"/>
-                </div>
                 <div class="col-md-8">
                   <button name="btn_quitar_rbr" class="btn btn-danger" ng-click="rpSolicitud.quitarRubro(rubro.Id)">
                     {{'BTN.QUITAR_RUBRO' | translate}}

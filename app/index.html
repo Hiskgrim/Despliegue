@@ -14,18 +14,19 @@
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
   <link rel="stylesheet" href="bower_components/angular-tree-control/css/tree-control.css" />
   <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.css" />
-  <link rel="stylesheet" href="bower_components/font-awesome-animation/dist/font-awesome-animation.css" />
-  <link rel="stylesheet" href="bower_components/font-awesome-animation/dist/font-awesome-animation.min.css" />
+  <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css" />
+  <link rel="stylesheet" href="bower_components/vis/dist/vis.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
-  <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/estilo-cdve.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.19.1/vis.min.css" >
+  <link rel="stylesheet" href="styles/oas-style.css">
+  <link rel="stylesheet" href="styles/sb-admin-2.css">
+  <link rel="stylesheet" href="styles/table-demo.css">
+  <link rel="stylesheet" href="styles/timeline.css">
+  <script type="text/javascript" src="http://visjs.org/dist/vis.js"></script>
+  <link href="http://visjs.org/dist/vis.css" rel="stylesheet" type="text/css">
   <!-- endbuild -->
-  <link rel="stylesheet" href="https://s3.amazonaws.com/assets-oas/oas-style.css">
-  <link rel="stylesheet" href="https://s3.amazonaws.com/assets-oas/sb-admin-2.css">
-  <link rel="stylesheet" href="https://s3.amazonaws.com/assets-oas/table-demo.css">
 </head>
 <body ng-app="contractualClienteApp">
   <div ng-include="'views/menu.html'" ng-controller="menuCtrl"></div>
@@ -77,6 +78,12 @@
     <script src="bower_components/angular-moment/angular-moment.js"></script>
     <script src="bower_components/angular-translate/angular-translate.js"></script>
     <script src="bower_components/sweetalert2/dist/sweetalert2.js"></script>
+    <script src="bower_components/angular-timelinejs3/dist/js/ng-timeline.js"></script>
+    <script src="bower_components/chart.js/dist/Chart.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/nvd3/build/nv.d3.js"></script>
+    <script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+    <script src="bower_components/vis/dist/vis.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -112,22 +119,14 @@
   <script src="scripts/controllers/rp/rp_solicitud.js"></script>
   <script src="scripts/controllers/rp/rp_solicitud_personas.js"></script>
   <script src="scripts/services/agora_service.js"></script>
+  <script src="scripts/directives/loading.js"></script>
   <script src="scripts/services/oikos_service.js"></script>
+  <script src="scripts/services/sicapital_service.js"></script>
   <script src="scripts/directives/catalogos_elementos/ficha_tecnica_elemento.js"></script>
   <script src="scripts/controllers/seguimientoycontrol/financiero.js"></script>
   <script src="scripts/controllers/seguimientoycontrol/financiero/contrato.js"></script>
   <script src="scripts/controllers/seguimientoycontrol/financiero/ordenes_pago.js"></script>
   <script src="scripts/controllers/seguimientoycontrol/financiero/estadisticas.js"></script>
-  <script src="scripts/controllers/seguimientoycontrol/legal.js"></script>
-  <script src="scripts/controllers/seguimientoycontrol/legal/acta_inicio.js"></script>
-  <script src="scripts/controllers/seguimientoycontrol/legal/acta_suspension.js"></script>
-  <script src="scripts/controllers/seguimientoycontrol/legal/acta_reinicio.js"></script>
-  <script src="scripts/controllers/seguimientoycontrol/legal/acta_cesion.js"></script>
-  <script src="scripts/controllers/seguimientoycontrol/legal/acta_adicion_prorroga.js"></script>
-  <script src="scripts/controllers/seguimientoycontrol/legal/acta_liquidacion.js"></script>
-  <script src="scripts/controllers/seguimientoycontrol/legal/acta_terminacion_liquidacion_bilateral.js"></script>
-  <script src="scripts/controllers/seguimientoycontrol/legal/novedad_otro_si_aclaratorio.js"></script>
-  <script src="scripts/controllers/seguimientoycontrol/legal/novedad_otro_si_modificatorio.js"></script>
   <script src="scripts/controllers/vinculacionespecial/resolucion_generacion.js"></script>
   <script src="scripts/controllers/vinculacionespecial/hojas_de_vida_seleccion.js"></script>
   <script src="scripts/controllers/vinculacionespecial/contrato_registro.js"></script>
@@ -140,14 +139,15 @@
   <script src="scripts/controllers/vinculacionespecial/resolucion_vista.js"></script>
   <script src="scripts/controllers/vinculacionespecial/resolucion_administracion.js"></script>
   <script src="scripts/controllers/vinculacionespecial/contrato_resumen.js"></script>
-  <script src="scripts/services/argo_nosql_service.js"></script>
+  <script src="scripts/services/contrato.js"></script>
+  <script src="scripts/services/registro.js"></script>
+  <script src="scripts/services/disponibilidad.js"></script>
+  <script src="scripts/services/orden.js"></script>
   <script src="scripts/services/contratacion_service.js"></script>
   <script src="scripts/services/hojas_de_vida_service.js"></script>
   <script src="scripts/services/contratacion_mid_service.js"></script>
-  <script src="scripts/services/sicapital_service.js"></script>
   <script src="scripts/services/titan_service.js"></script>
-  <script src="scripts/services/argo_nosql_service.js"></script>
+
   <!-- endbuild -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.19.1/vis.min.js"> </script>
   <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
   </html>

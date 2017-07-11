@@ -11,7 +11,7 @@ angular.module('titan_service',[])
   .factory('titan_request', function ($http) {
     // Service logic
     // ...
-    var path = "http://localhost:8087/v1/";
+    var path = "http://10.20.0.254/titan_api_crud/v1/";
 
     // Public API here
     return {

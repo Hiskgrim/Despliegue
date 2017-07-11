@@ -20,11 +20,21 @@ angular.module('contractualClienteApp')
         self.datosFiltro=response.data;
         self.datosFiltro.IdFacultad=self.datosFiltro.IdFacultad.toString();
         contratacion_request.getAll("proyecto_curricular/"+self.datosFiltro.NivelAcademico.toLowerCase()+"/"+self.datosFiltro.IdFacultad).then(function(response){
-          self.proyectos=response.data;
+          if(response.data==null){
+            contratacion_request.getAll("facultad/"+self.datosFiltro.IdFacultad).then(function(response){
+              self.proyectos=[response.data]
+            });
+          }else{
+            self.proyectos=response.data;
+          }
           contratacion_request.getOne("contenido_resolucion",self.idResolucion).then(function(response){
             self.contenidoResolucion=response.data;
-            contratacion_request.getOne("ordenador_gasto",parseInt(self.datosFiltro.IdFacultad)).then(function(response){
-              self.contenidoResolucion.ordenadorGasto=response.data;
+            contratacion_request.getOne("ordenador_gasto",self.datosFiltro.IdFacultad).then(function(response){
+              if(response.data==null){
+                self.contenidoResolucion.ordenadorGasto={Cargo: "Vicerector académico ILUD"}
+              }else{
+                self.contenidoResolucion.ordenadorGasto=response.data;
+              }
               contratacion_request.getAll("precontratado/"+self.idResolucion.toString()).then(function(response){      
                 self.contratados=response.data;
                 if(self.contratados){

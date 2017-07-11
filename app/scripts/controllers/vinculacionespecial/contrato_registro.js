@@ -8,7 +8,7 @@
  * Controller of the clienteApp
  */
 angular.module('contractualClienteApp')
-  .controller('ContratoRegistroCtrl', function (contratacion_request,contratacion_mid_request,sicapital_request,idResolucion,$mdDialog,lista,resolucion,$translate) {
+  .controller('ContratoRegistroCtrl', function (contratacion_request,contratacion_mid_request,sicapitalRequest,idResolucion,$mdDialog,lista,resolucion,$translate) {
   	
   	var self = this;
 
@@ -33,7 +33,7 @@ angular.module('contractualClienteApp')
       }
     });
 
-    sicapital_request.getAll("disponibilidad/cdpfiltro/2017/1/VIGENTE","limit=1").then(function(response){
+    sicapitalRequest.get("disponibilidad/cdpfiltro/2017/1/VIGENTE").then(function(response){
       self.cdp_opciones=response.data;
     });
 
@@ -152,7 +152,7 @@ angular.module('contractualClienteApp')
         self.contratados.forEach(function(contratado){
           var contratoGeneral=JSON.parse(JSON.stringify(self.contratoGeneralBase));
           contratoGeneral.Contratista=contratado.Documento;
-          
+          alert(contratado.ProyectoCurricular)
           contratoGeneral.DependenciaSolicitante=contratado.ProyectoCurricular.toString();
           contratoGeneral.PlazoEjecucion=contratado.Semanas*7;
           contratoGeneral.OrdenadorGasto="1";
@@ -164,7 +164,7 @@ angular.module('contractualClienteApp')
           conjuntoContratos.push(contratoVinculacion);
         });
           contratacion_request.post("contrato_general/InsertarContratos",conjuntoContratos).then(function(response){    
-            
+            alert(JSON.stringify(response.data))
             if(!(typeof(response.data)=="object")){
               errorInsercion=true;
             }

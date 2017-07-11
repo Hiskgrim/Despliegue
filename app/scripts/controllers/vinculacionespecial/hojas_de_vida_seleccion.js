@@ -12,7 +12,13 @@ angular.module('contractualClienteApp')
     contratacion_request.getOne("resolucion_vinculacion_docente",self.idResolucion).then(function(response){      
       self.datosFiltro=response.data;
       contratacion_request.getAll("proyecto_curricular/"+self.datosFiltro.NivelAcademico.toLowerCase()+"/"+self.datosFiltro.IdFacultad).then(function(response){
-        self.proyectos=response.data;
+        if(response.data==null){
+          contratacion_request.getAll("facultad/"+self.datosFiltro.IdFacultad).then(function(response){
+            self.proyectos=[response.data]
+          });
+        }else{
+          self.proyectos=response.data;
+        }
       });
       switch(self.datosFiltro.Dedicacion){      
         case "TCO-MTO":
@@ -50,7 +56,7 @@ angular.module('contractualClienteApp')
       paginationPageSizes: [10, 15, 20],
       paginationPageSize: 10,
       enableRowSelection: true,
-      enableRowHeaderSelection: false,
+      enableRowHeaderSelection: true,
       enableFiltering: true,
       enableHorizontalScrollbar: 0,
       enableVerticalScrollbar: true,
@@ -122,6 +128,8 @@ angular.module('contractualClienteApp')
     }
 
     self.precontratados = {
+      paginationPageSizes: [10, 15, 20],
+      paginationPageSize: 10,
       enableSorting: true,
       enableFiltering : true,
       enableRowSelection: false,
@@ -561,7 +569,7 @@ angular.module('contractualClienteApp')
         case 2: return $translate.instant('DOSCIENTOS') + self.Decenas(decenas);
         case 3: return $translate.instant('TRESCIENTOS') + self.Decenas(decenas);
         case 4: return $translate.instant('CUATROCIENTOS') + self.Decenas(decenas);
-        case 5: return $translate.instant('QUINIENTOS') + self.self.Decenas(decenas);
+        case 5: return $translate.instant('QUINIENTOS') + self.Decenas(decenas);
         case 6: return $translate.instant('SEISCIENTOS') + self.Decenas(decenas);
         case 7: return $translate.instant('SETECIENTOS') + self.Decenas(decenas);
         case 8: return $translate.instant('OCHOCIENTOS') + self.Decenas(decenas);

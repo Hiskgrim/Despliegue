@@ -40,13 +40,12 @@ angular
     'oikosService',
     'financieraMidService',
     'adminMidService',
-    'argoNosqlService',
+    'sicapitalService',
+    'nvd3',
     'kyronService',
     'contratacion_service',
     'contratacion_mid_service',
-    'sicapital_service',
-    'titan_service'
-
+    'titan_service',
   ])
     .run(function(amMoment) {
       amMoment.changeLocale('es');
@@ -110,56 +109,6 @@ angular
         controller: 'SeguimientoycontrolFinancieroEstadisticasCtrl',
         controllerAs: 'sFestadisticas'
       })
-      .when('/seguimientoycontrol/legal', {
-        templateUrl: 'views/seguimientoycontrol/legal.html',
-        controller: 'SeguimientoycontrolLegalCtrl',
-        controllerAs: 'sLegal'
-      })
-      .when('/seguimientoycontrol/legal/acta_inicio/:contrato_id', {
-        templateUrl: 'views/seguimientoycontrol/legal/acta_inicio.html',
-        controller: 'SeguimientoycontrolLegalActaInicioCtrl',
-        controllerAs: 'sLactaInicio'
-      })
-      .when('/seguimientoycontrol/legal/acta_suspension/:contrato_id', {
-        templateUrl: 'views/seguimientoycontrol/legal/acta_suspension.html',
-        controller: 'SeguimientoycontrolLegalActaSuspensionCtrl',
-        controllerAs: 'sLactaSuspension'
-      })
-      .when('/seguimientoycontrol/legal/acta_reinicio/:contrato_id', {
-        templateUrl: 'views/seguimientoycontrol/legal/acta_reinicio.html',
-        controller: 'SeguimientoycontrolLegalActaReinicioCtrl',
-        controllerAs: 'sLactaReinicio'
-      })
-      .when('/seguimientoycontrol/legal/acta_cesion/:contrato_id', {
-        templateUrl: 'views/seguimientoycontrol/legal/acta_cesion.html',
-        controller: 'SeguimientoycontrolLegalActaCesionCtrl',
-        controllerAs: 'sLactaCesion'
-      })
-      .when('/seguimientoycontrol/legal/acta_adicion_prorroga', {
-        templateUrl: 'views/seguimientoycontrol/legal/acta_adicion_prorroga.html',
-        controller: 'SeguimientoycontrolLegalActaAdicionProrrogaCtrl',
-        controllerAs: 'sLactaAdicionProrroga'
-      })
-      .when('/seguimientoycontrol/legal/acta_liquidacion', {
-        templateUrl: 'views/seguimientoycontrol/legal/acta_liquidacion.html',
-        controller: 'SeguimientoycontrolLegalActaLiquidacionCtrl',
-        controllerAs: 'sLactaLiquidacion'
-      })
-      .when('/seguimientoycontrol/legal/acta_terminacion_liquidacion_bilateral', {
-        templateUrl: 'views/seguimientoycontrol/legal/acta_terminacion_liquidacion_bilateral.html',
-        controller: 'SeguimientoycontrolLegalActaTerminacionLiquidacionBilateralCtrl',
-        controllerAs: 'sLactaTerminacionAnticipada'
-      })
-      .when('/seguimientoycontrol/legal/novedad_otro_si_aclaratorio', {
-        templateUrl: 'views/seguimientoycontrol/legal/novedad_otro_si_aclaratorio.html',
-        controller: 'SeguimientoycontrolLegalNovedadOtroSiAclaratorioCtrl',
-        controllerAs: 'sLotroSiAclaratorio'
-      })
-      .when('/seguimientoycontrol/legal/novedad_otro_si_modificatorio', {
-        templateUrl: 'views/seguimientoycontrol/legal/novedad_otro_si_modificatorio.html',
-        controller: 'SeguimientoycontrolLegalNovedadOtroSiModificatorioCtrl',
-        controllerAs: 'sLotroSiModificatorio'
-      })
       .when('/vinculacionespecial/resolucion_generacion', {
         templateUrl: 'views/vinculacionespecial/resolucion_generacion.html',
         controller: 'ResolucionGeneracionCtrl',
@@ -194,11 +143,6 @@ angular
         templateUrl: 'views/vinculacionespecial/resolucion_administracion.html',
         controller: 'ResolucionAdministracionCtrl',
         controllerAs: 'resolucionAdministracion'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
       })
       .otherwise({
         redirectTo: '/'

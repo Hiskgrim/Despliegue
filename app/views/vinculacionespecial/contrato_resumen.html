@@ -3,7 +3,7 @@
   <div class="panel-body">
     <md-content class="md-padding">
     <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
-    <md-tab ng-repeat="tab in proyectos"
+    <md-tab ng-repeat="tab in contratoResumen.proyectos"
     label="{{tab.Nombre}}">
     <div class="demo-tab tab{{$index%4}}">
       <form>
@@ -28,7 +28,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat = "datoContrato in contratados | orderBy:sortType:sortReverse | filter:searchFish" ng-if = "datoContrato.ProyectoCurricular==proyectos[selectedIndex].Id">
+          <tr ng-repeat = "datoContrato in contratoResumen.contratados | orderBy:sortType:sortReverse | filter:searchFish" ng-if = "datoContrato.ProyectoCurricular==contratoResumen.proyectos[selectedIndex].Id">
             <td>{{datoContrato.NombreCompleto}}</td>
             <td>{{datoContrato.Documento}}</td>
             <td>{{datoContrato.Expedicion}}</td>

@@ -6,6 +6,8 @@ angular.module('contractualClienteApp')
   	var self = this;
 
 	self.resolucionesInscritas = {
+      paginationPageSizes: [10, 15, 20],
+      paginationPageSize: 10,
       enableSorting: true,
       enableFiltering : true,
       enableRowHeaderSelection: false,
