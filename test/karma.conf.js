@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on 2017-04-13
+// Generated on 2017-04-04
 
 module.exports = function(config) {
   'use strict';
@@ -39,18 +39,24 @@ module.exports = function(config) {
       'bower_components/pdfmake/build/pdfmake.js',
       'bower_components/pdfmake/build/vfs_fonts.js',
       'bower_components/ngstorage/ngStorage.js',
-      'bower_components/kjur-jsrsasign/jsrsasign-latest-all-min.js',
+      'bower_components/kjur-jsrsasign/jsrsasign-all-min.js',
       'bower_components/angular-websocket/dist/angular-websocket.js',
       'bower_components/angular-input-masks/angular-input-masks-standalone.js',
       'bower_components/moment/moment.js',
       'bower_components/angular-moment/angular-moment.js',
       'bower_components/angular-translate/angular-translate.js',
       'bower_components/sweetalert2/dist/sweetalert2.js',
+      'bower_components/angular-timelinejs3/dist/js/ng-timeline.js',
+      'bower_components/chart.js/dist/Chart.js',
+      'bower_components/d3/d3.js',
+      'bower_components/nvd3/build/nv.d3.js',
+      'bower_components/angular-nvd3/dist/angular-nvd3.js',
+      'bower_components/vis/dist/vis.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      //'test/mock/**/*.js',
+      'test/spec/controllers/seguimientoycontrol/financiero.js'
     ],
 
     // list of files / patterns to exclude
@@ -63,7 +69,7 @@ module.exports = function(config) {
     // Start these browsers, currently available:
     // - Chrome
     // - ChromeCanary
-    // - Firefox
+    // - Firefoxg
     // - Opera
     // - Safari (only Mac)
     // - PhantomJS

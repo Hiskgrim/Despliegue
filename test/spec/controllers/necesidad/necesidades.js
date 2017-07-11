@@ -1,23 +1,23 @@
 'use strict';
 
-describe('Controller: HojasDeVidaSeleccionCtrl', function () {
+describe('Controller: NecesidadNecesidadesCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('clienteApp'));
+  beforeEach(module('contractualClienteApp'));
 
-  var HojasDeVidaSeleccionCtrl,
+  var NecesidadNecesidadesCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    HojasDeVidaSeleccionCtrl = $controller('HojasDeVidaSeleccionCtrl', {
+    NecesidadNecesidadesCtrl = $controller('NecesidadNecesidadesCtrl', {
       $scope: scope
       // place here mocked dependencies
     });
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(HojasDeVidaSeleccionCtrl.awesomeThings.length).toBe(3);
+    expect(NecesidadNecesidadesCtrl.awesomeThings.length).toBe(3);
   });
 });

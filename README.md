@@ -1,7 +1,7 @@
-# cliente
+# contractual-cliente
 
 This project is generated with [yo oas-generator](https://github.com/fabianLeon/oas)
-version 0.1.3.
+version 0.1.2.
 
 ## Build & development
 
